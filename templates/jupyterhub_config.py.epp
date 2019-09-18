@@ -78,7 +78,7 @@ c.JupyterHub.cookie_secret_file = '<%= $jupyterhub::cookie_secret_file %>'
 
 <% if $jupyterhub::sudospawner_enable { -%>
 # sudospawner 
-c.SudoSpawner.spawner_class='sudospawner.SudoSpawner'
+c.JupyterHub.spawner_class='sudospawner.SudoSpawner'
 c.SudoSpawner.sudospawner_path = '<%= $jupyterhub::pyvenv %>/bin/sudospawner'
 <% if $jupyterhub::sudospawner_debug_enable { -%>
 c.SudoSpawner.debug_mediator = True
@@ -87,7 +87,7 @@ c.SudoSpawner.debug_mediator = True
 
 <% if $jupyterhub::systemdspawner_enable { -%>
 # systemdspawner 
-c.SystemdSpawner.spawner_class='systemdspawner.SystemdSpawner'
+c.JupyterHub.spawner_class='systemdspawner.SystemdSpawner'
 c.SystemdSpawner.dynamic_users = True
 c.SystemdSpawner.user_workingdir = '<%= $jupyterhub::systemdspawner_user_workingdir %>'
 c.SystemdSpawner.default_shell = '<%= $jupyterhub::systemdspawner_default_shell %>'
@@ -101,7 +101,7 @@ c.SystemdSpawner.cpu_limit = '<%= $jupyterhub::systemdspawner_cpu_limit %>'
 
 <% if $jupyterhub::batchspawner_enable { -%>
 # batchspawner
-c.BatchSpawner.spawner_class = 'batchspawner.TorqueSpawner'
+c.JupyterHub.spawner_class = 'batchspawner.TorqueSpawner'
 c.BatchSpawner.http_timeout = 120
 #------------------------------------------------------------------------------
 # BatchSpawnerBase configuration
